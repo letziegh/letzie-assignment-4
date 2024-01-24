@@ -43,33 +43,37 @@ public class Assignment4Application {
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(path));
 			int i= 0;
-			Courses[] courses = new Courses [4];
+			Enrollment[] enrollments = new Enrollment [101];
 			String line = "";
 			while ((line = reader.readLine()) != null) {
 				
 				String[] student = line.split(","); //change from "," to Course; change from array to string to read values
-				int ID= student[0];
+				String iD= student[0];
+				//int idInt = Integer.parseInt(iD);
 				String name = student[1];
 				String course = student[2];
-				int grade = student[3];
-				//Courses c= new Courses(ID, name, course, grade);
+				String grade = student[3];
+				//int grade = Integer.parseInt(student[3]);
+				Enrollment enrollment= new Enrollment(iD, name, course, grade);
+				enrollments[i] = enrollment;
 				//Courses c= new Courses(student[0], student[1], student [2], student[3]);
 				//student [i] = new students;
 				i++;
+				System.out.println(enrollment);
+				//Arrays.toString(enrollments)
 				
 				
-				
+			}
 				//insert loop with string to read arrays
 				//System.out.println(values);
-				System.out.println(Arrays.toString(student));
-			}//return student;
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}//return enrollments;
 
+	
 	}
 
 }
