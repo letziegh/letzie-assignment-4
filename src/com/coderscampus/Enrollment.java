@@ -1,42 +1,33 @@
 package com.coderscampus;
 
 public class Enrollment implements Comparable<Enrollment> {
-	private String iD;
+	private Integer iD;
 	private String name;
 	private String course;
-	private String grade;
+	private Integer grade;
 	
-	public Enrollment (String iD, String name, String course, String grade ) {
+	
+	public Enrollment (Integer iD, String name, String course, Integer grade ) {
 		this.iD = iD;
 		this.name= name;
 		this.course= course;
 		this.grade = grade;
 		
 		
+		
+
+		
 	}
 	
-	
-	
-	
-	
-
-
-	public String getiD() {
+	public Integer getiD() {
 		return iD;
 	}
 
 
 
-
-
-
-
-	public void setiD(String iD) {
+	public void setiD(Integer iD) {
 		this.iD = iD;
 	}
-
-
-
 
 
 
@@ -48,15 +39,9 @@ public class Enrollment implements Comparable<Enrollment> {
 
 
 
-
-
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
-
 
 
 
@@ -67,10 +52,6 @@ public class Enrollment implements Comparable<Enrollment> {
 
 
 
-
-
-
-
 	public void setCourse(String course) {
 		this.course = course;
 	}
@@ -78,36 +59,22 @@ public class Enrollment implements Comparable<Enrollment> {
 
 
 
-
-
-
-	public String getGrade() {
+	public Integer getGrade() {
 		return grade;
 	}
 
 
 
-
-
-
-
-	public void setGrade(String grade) {
+	public void setGrade(Integer grade) {
 		this.grade = grade;
 	}
 
 
 
-
-
-
-
 	@Override
 	public String toString() {
-		return "Courses [iD=" + iD + ", name=" + name + ", course=" + course + ", grade=" + grade + "]";
+		return "Enrollment [iD=" + iD + ", name=" + name + ", course=" + course + ", grade=" + grade + "]";
 	}
-
-
-
 
 	@Override
 	public int compareTo(Enrollment o) {

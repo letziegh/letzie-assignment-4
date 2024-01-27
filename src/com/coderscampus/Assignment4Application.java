@@ -28,52 +28,74 @@ public class Assignment4Application {
 	 * Integer.parseInt(myStringVal);
 	 * 
 	 */
-	// FIRST GET THE READER TO READ CSV FILE THEN PARSE INTO 3 DIFFERENT FILES--DONE!!!!COMPLETED!!!just added C://
+	// FIRST GET THE READER TO READ CSV FILE THEN PARSE INTO 3 DIFFERENT
+	// FILES--DONE!!!!COMPLETED!!!just added C://
 //	parse by class(compsci, stat, apmth) put each into an array
-	//and Separate data into 3 CSV files; use bufferedwriter to read 3 arrays into 3 different files
-	//Watch video on looping \n  to start a new line for each student in file to
-	
-	//Use this. to sort
-	//then save into 3 separate csv files
-	public static void main(String[] args) {
+	// and Separate data into 3 CSV files; use bufferedwriter to read 3 arrays into
+	// 3 different files
+	// Watch video on looping \n to start a new line for each student in file to
+
+	// Use this. to sort
+	// then save into 3 separate csv files
+	public static void main(String[] args) throws IOException  {
+		FileService fileService = new FileService();
+		Enrollment [] enrollments = fileService.getStudentsFromFile();
+		String[] studentCourses = new String [enrollments.length];
+		
+
+			
 		
 		
-	
-		String path = "C:\\Users\\abbah\\OneDrive\\Desktop\\student-master-list.csv";
-		try {
-			BufferedReader reader = new BufferedReader(new FileReader(path));
-			int i= 0;
-			Enrollment[] enrollments = new Enrollment [101];
-			String line = "";
-			while ((line = reader.readLine()) != null) {
-				
-				String[] student = line.split(","); //change from "," to Course; change from array to string to read values
-				String iD= student[0];
-				//int idInt = Integer.parseInt(iD);
-				String name = student[1];
-				String course = student[2];
-				String grade = student[3];
-				//int grade = Integer.parseInt(student[3]);
-				Enrollment enrollment= new Enrollment(iD, name, course, grade);
-				enrollments[i] = enrollment;
-				//Courses c= new Courses(student[0], student[1], student [2], student[3]);
-				//student [i] = new students;
-				i++;
-				System.out.println(enrollment);
-				//Arrays.toString(enrollments)
-				
-				
-			}
-				//insert loop with string to read arrays
-				//System.out.println(values);
-
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}//return enrollments;
-
-	
+		for(int i =0; i<enrollments.length; i++) {
+			studentCourses [i] = enrollments[i].getCourse();
+			
+		}
+		//BEFORE SORTING MUST SPLIT FILE BASED ON COURSE, THEN SORT BY GRADE IN DESCENDING ORDER
+		Arrays.sort(studentCourses);
+		for(String studentCourse: studentCourses) {
+			System.out.println(studentCourse);
+			
+		}
+		
+		
 	}
+	}
+		
 
-}
+		
+
+//		String path = "C:\\Users\\abbah\\OneDrive\\Desktop\\student-master-list.csv";
+//		try {
+//			BufferedReader reader = new BufferedReader(new FileReader(path));
+//			int i= 0;
+//			Enrollment[] enrollments = new Enrollment [101];
+//			String line = "";
+//			while ((line = reader.readLine()) != null) {
+//				
+//				String[] student = line.split(","); //change from "," to Course; change from array to string to read values
+//				String iD= student[0];
+//				//int idInt = Integer.parseInt(iD);
+//				String name = student[1];
+//				String course = student[2];
+//				String grade = student[3];
+//				//int grade = Integer.parseInt(student[3]);
+//				Enrollment enrollment= new Enrollment(iD, name, course, grade);
+//				enrollments[i] = enrollment;
+//				//Courses c= new Courses(student[0], student[1], student [2], student[3]);
+//				//student [i] = new students;
+//				i++;
+//				System.out.println(enrollment);
+//				//Arrays.toString(enrollments)
+//				
+//				
+//			}
+//				//insert loop with string to read arrays
+//				//System.out.println(values);
+//
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}//return enrollments;
+//
+//	
