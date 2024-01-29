@@ -11,6 +11,9 @@ import java.util.Arrays;
 
 public class FileService {
 	
+	
+
+	
 	public Enrollment[] getStudentsFromFile(){
 	String filePath = "C:\\Users\\abbah\\git\\letzie-assignment-4\\student-master-list.csv";
 	
@@ -26,20 +29,21 @@ public class FileService {
 	            BufferedWriter writer3 = new BufferedWriter(new FileWriter(outputFile3))
 	        ) 
 	 {
-		 String header = reader.readLine();
-            if (header != null) {
-                writer1.write(header);
-                writer1.newLine();
-                writer2.write(header);
-                writer2.newLine();
-                writer3.write(header);
-                writer3.newLine();
-                
-               System.out.println(header);
-            }
+//		 String header = reader.readLine();
+//            if (header != null) {
+//                writer1.write(header);
+//                writer1.newLine();
+//                writer2.write(header);
+//                writer2.newLine();
+//                writer3.write(header);
+//                writer3.newLine();
+//                
+//               System.out.println(header);
+//            }
             int i= 0;
 			Enrollment[] enrollments = new Enrollment [100];
 			String line = "";
+			reader.readLine();
 			while ((line = reader.readLine()) != null) {
 				
 				String[] student = line.split(","); //change from "," to Course; change from array to string to read values
@@ -69,7 +73,6 @@ public class FileService {
 				
 				//Store the students in a variable by courses using an if statement make a method
 				
-			//	enrollment.getClass();
 				
 		}return null ;
 				
@@ -98,3 +101,12 @@ public class FileService {
 	 * course1.csv, course2.csv, and course3.csv.
 	 * 
 	 */
+
+//public Enrollment getSortedClasses(Enrollment[] enrollments, String name, String course, Integer grade) {
+//	
+//	for(int i =0; i<enrollments.length; i++) {
+//		Enrollment studentEnrollments = enrollments[i];
+//		
+//		if(studentEnrollments.equals("COMSCI"){
+//			
+//		}

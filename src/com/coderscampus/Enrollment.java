@@ -78,8 +78,8 @@ public class Enrollment implements Comparable<Enrollment> {
 
 	@Override
 	public int compareTo(Enrollment o) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return o.grade.compareTo(this.getGrade());
 	}
 	
 	

@@ -37,32 +37,47 @@ public class Assignment4Application {
 
 	// Use this. to sort
 	// then save into 3 separate csv files
-	public static void main(String[] args) throws IOException  {
+	public static void main(String[] args) throws IOException {
 		FileService fileService = new FileService();
-		Enrollment [] enrollments = fileService.getStudentsFromFile();
-		String[] studentCourses = new String [enrollments.length];
+		Enrollment[] enrollments = fileService.getStudentsFromFile();
+		String[] studentCourses = new String[enrollments.length];
+
+		// have loop for each course
+		// sort by grade
+		// use buffered writer to read into file
+		// create method for buffered writer
+		for (Enrollment apmth : enrollments) {
+			if (apmth.getCourse().contains("APMTH"))
+				System.out.println(apmth);
+
+		}
+		System.out.println("---------");
+		Arrays.sort(enrollments);
+		for (Enrollment compsci : enrollments) {
+			if (compsci.getCourse().contains("COMPSCI")) {
+				System.out.println(compsci);
+			}
+		}System.out.println("---------");
+				// use buffered writer to read this into file after
+				// sorting by grade
+
+		for(Enrollment stat:enrollments) {
+			if(stat.getCourse().contains("STAT")) {
+				System.out.println(stat);
+			}
+		}
 		
 
-			
-		
-		
-		for(int i =0; i<enrollments.length; i++) {
-			studentCourses [i] = enrollments[i].getCourse();
-			
-		}
-		//BEFORE SORTING MUST SPLIT FILE BASED ON COURSE, THEN SORT BY GRADE IN DESCENDING ORDER
-		Arrays.sort(studentCourses);
-		for(String studentCourse: studentCourses) {
-			System.out.println(studentCourse);
-			
-		}
-		
-		
-	}
-	}
-		
+		// BEFORE SORTING MUST SPLIT FILE BASED ON COURSE, THEN SORT BY GRADE IN
+		// DESCENDING ORDER
+		// Arrays.sort(studentCourses);
+//		for(String studentCourse: studentCourses) {
+//			System.out.println(studentCourse);
 
-		
+//		}
+
+	}
+}
 
 //		String path = "C:\\Users\\abbah\\OneDrive\\Desktop\\student-master-list.csv";
 //		try {
