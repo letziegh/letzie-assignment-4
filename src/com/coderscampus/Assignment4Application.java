@@ -41,31 +41,65 @@ public class Assignment4Application {
 		FileService fileService = new FileService();
 		Enrollment[] enrollments = fileService.getStudentsFromFile();
 		String[] studentCourses = new String[enrollments.length];
+		
+		String outputFile1 = "course1.csv";
+//		String outputFile2 = "course2.csv";
+//		String outputFile3 = "course3.csv";
+		
+		BufferedWriter writer1 = null;
+		try {
+			writer1 = new BufferedWriter(new FileWriter(outputFile1)); 
+		System.out.println(Arrays.toString(fileService.sortedStudentsInFileOne()));
+			//writer1.write(fileService.sortedStudentsInFileOne());
+			//finish writing out bufferedwriter in main class then move it to a method in fileservice
+		}finally{
+			if(writer1 !=null)writer1.close();
+			
+		}
+
+//		try {
+//			writer1 = new BufferedWriter(new FileWriter(outputFile1));
+//			writer1.write(fileService.sortedStudentsInFileOne());
+//			writer2 = new BufferedWriter(new FileWriter(outputFile2));
+//			writer3 = new BufferedWriter(new FileWriter(outputFile3));
+//		} finally {
+//			if (writer1 != null)writer1.close();
+//			if(writer2 !=null)writer2.close();
+//			if(writer3 !=null)writer3.close();
+//			// String line="";
+//			// while ((line = reader.readLine()) != null) {
+//			// writer.write(fileService.sortedStudentsInFileOne());
+//		}
+//		
+		
+		//fileService.sortedStudentsInFileOne();
+		//fileService.sortedStudentsInFileTwo();
+		//fileService.sortedStudentsInFileThree();
 
 		// have loop for each course
 		// sort by grade
 		// use buffered writer to read into file
 		// create method for buffered writer
-		for (Enrollment apmth : enrollments) {
-			if (apmth.getCourse().contains("APMTH"))
-				System.out.println(apmth);
-
-		}
-		System.out.println("---------");
-		Arrays.sort(enrollments);
-		for (Enrollment compsci : enrollments) {
-			if (compsci.getCourse().contains("COMPSCI")) {
-				System.out.println(compsci);
-			}
-		}System.out.println("---------");
-				// use buffered writer to read this into file after
-				// sorting by grade
-
-		for(Enrollment stat:enrollments) {
-			if(stat.getCourse().contains("STAT")) {
-				System.out.println(stat);
-			}
-		}
+//		for (Enrollment apmth : enrollments) {
+//			if (apmth.getCourse().contains("APMTH"))
+//				System.out.println(apmth);
+//
+//		}
+//		System.out.println("---------");
+//		Arrays.sort(enrollments);
+//		for (Enrollment compsci : enrollments) {
+//			if (compsci.getCourse().contains("COMPSCI")) {
+//				System.out.println(compsci);
+//			}
+//		}System.out.println("---------");
+//				// use buffered writer to read this into file after
+//				// sorting by grade
+//
+//		for(Enrollment stat:enrollments) {
+//			if(stat.getCourse().contains("STAT")) {
+//				System.out.println(stat);
+//			}
+//		}
 		
 
 		// BEFORE SORTING MUST SPLIT FILE BASED ON COURSE, THEN SORT BY GRADE IN
