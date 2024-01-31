@@ -1,6 +1,6 @@
 package com.coderscampus;
 
-public class Enrollment implements Comparable<Enrollment> {
+public class Enrollment{ //implements Comparable<Enrollment> {
 	private Integer iD;
 	private String name;
 	private String course;
@@ -76,11 +76,17 @@ public class Enrollment implements Comparable<Enrollment> {
 		return "Enrollment [iD=" + iD + ", name=" + name + ", course=" + course + ", grade=" + grade + "]";
 	}
 
-	@Override
-	public int compareTo(Enrollment o) {
-		
-		return o.grade.compareTo(this.getGrade());
-	}
+//	@Override
+//	public int compareTo(Enrollment o) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+
+//	@Override
+//	public int compareTo(Enrollment o) {
+//		
+//		return o.grade.compareTo(this.getGrade());
+//	}
 	
 	
 

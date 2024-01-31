@@ -1,12 +1,14 @@
 package com.coderscampus;
 
 import java.io.BufferedReader;
+
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class FileService {
 
@@ -37,18 +39,48 @@ public class FileService {
 
 
 	
-
+public void writeToAFile(String fileName, Enrollment[] enrollments)throws IOException{
+	
+	BufferedWriter writer1 = new BufferedWriter(new FileWriter(fileName)); 
+	
+	try {
+		
+		writer1.write("Student ID, Student Name, Course, Grade \n");
+		for (Enrollment e: enrollments) {
+			writer1.write(e.getiD() + " " + e.getName() + " " + e.getCourse() + " " + e.getGrade() + "\n");
+		}
+	}finally{
+		if(writer1 !=null)writer1.close();
+		
+	}
+}
+	
 	public Enrollment[] sortedStudentsInFileOne() {
+		int counter= 0;
 		FileService fileService = new FileService();
 		Enrollment[] enrollments = fileService.getStudentsFromFile();
 		Enrollment[] finalEnrollment = new Enrollment[33];
-		// String[] studentCourses = new String[enrollments.length];
-		Arrays.sort(enrollments);
-System.out.println(enrollments.length);
-		for (int i = 0; i<finalEnrollment.length;i++) {
-			if (enrollments[i].getCourse().contains("APMTH")) {
-				finalEnrollment[i] = enrollments[i];
-				System.out.println(i);
+		
+		Arrays.sort(enrollments,new Comparator<Enrollment>() {
+
+			@Override
+			public int compare(Enrollment o1, Enrollment o2) {
+				
+				return o1.getGrade().compareTo(o2.getGrade());
+			}
+			
+		});
+		
+		
+		
+		
+
+		for (int i = 0; i<enrollments.length;i++) {
+			Enrollment enrollment = enrollments[i];
+			if (enrollment.getCourse().contains("APMTH")) {
+				finalEnrollment[counter] = enrollment;
+				counter++;
+				
 				
 			}
 				
@@ -57,33 +89,69 @@ System.out.println(enrollments.length);
 
 	}
 
-	public void sortedStudentsInFileTwo() {
+	public Enrollment[] sortedStudentsInFileTwo() {
+		int counter= 0;
 		FileService fileService = new FileService();
 		Enrollment[] enrollments = fileService.getStudentsFromFile();
-		// String[] studentCourses = new String[enrollments.length];
-		Arrays.sort(enrollments);
+		Enrollment[] finalEnrollment = new Enrollment[35];
+		
+	//	Arrays.sort(enrollments);
+		Arrays.sort(enrollments,new Comparator<Enrollment>() {
 
-		for (Enrollment compsci : enrollments) {
-			if (compsci.getCourse().contains("COMPSCI")) {
-				System.out.println(compsci);
+			@Override
+			public int compare(Enrollment o1, Enrollment o2) {
+				
+				return o1.getGrade().compareTo(o2.getGrade());
 			}
+			
+		});
+		
+
+		for (int i = 0; i<enrollments.length;i++) {
+			Enrollment enrollment = enrollments[i];
+			if (enrollment.getCourse().contains("COMPSCI")) {
+				finalEnrollment[counter] = enrollment;
+				counter++;
+				
+				
+			}
+				
 		}
+		return finalEnrollment;
 	}
 
-	public void sortedStudentsInFileThree() {
+	public Enrollment[] sortedStudentsInFileThree() {
+		int counter= 0;
 		FileService fileService = new FileService();
 		Enrollment[] enrollments = fileService.getStudentsFromFile();
-		// String[] studentCourses = new String[enrollments.length];
+		Enrollment[] finalEnrollment = new Enrollment[33];
+		
+		//Arrays.sort(enrollments);
+		Arrays.sort(enrollments,new Comparator<Enrollment>() {
 
-		for (Enrollment stat : enrollments) {
-			if (stat.getCourse().contains("STAT")) {
-				System.out.println(stat);
+			@Override
+			public int compare(Enrollment o1, Enrollment o2) {
+				
+				return o1.getGrade().compareTo(o2.getGrade());
 			}
+			
+		});
+
+		for (int i = 0; i<enrollments.length;i++) {
+			Enrollment enrollment = enrollments[i];
+			if (enrollment.getCourse().contains("STAT")) {
+				finalEnrollment[counter] = enrollment;
+				counter++;
+				
+				
+			}
+				
 		}
+		return finalEnrollment;
 	}
 
 	public Enrollment[] getStudentsFromFile() {
-		String filePath = "C:\\Users\\abbah\\git\\letzie-assignment-4\\student-master-list.csv";
+		String filePath = "student-master-list.csv";
 
 		String outputFile1 = "course1.csv";
 		String outputFile2 = "course2.csv";

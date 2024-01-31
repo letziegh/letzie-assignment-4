@@ -40,22 +40,18 @@ public class Assignment4Application {
 	public static void main(String[] args) throws IOException {
 		FileService fileService = new FileService();
 		Enrollment[] enrollments = fileService.getStudentsFromFile();
-		String[] studentCourses = new String[enrollments.length];
+		
 		
 		String outputFile1 = "course1.csv";
-//		String outputFile2 = "course2.csv";
-//		String outputFile3 = "course3.csv";
+		String outputFile2 = "course2.csv";
+		String outputFile3 = "course3.csv";
 		
-		BufferedWriter writer1 = null;
-		try {
-			writer1 = new BufferedWriter(new FileWriter(outputFile1)); 
-		System.out.println(Arrays.toString(fileService.sortedStudentsInFileOne()));
-			//writer1.write(fileService.sortedStudentsInFileOne());
-			//finish writing out bufferedwriter in main class then move it to a method in fileservice
-		}finally{
-			if(writer1 !=null)writer1.close();
-			
-		}
+		fileService.writeToAFile(outputFile1,fileService.sortedStudentsInFileOne());	
+		fileService.writeToAFile(outputFile2,fileService.sortedStudentsInFileTwo());	
+		fileService.writeToAFile(outputFile3,fileService.sortedStudentsInFileThree());	
+		
+		
+		
 
 //		try {
 //			writer1 = new BufferedWriter(new FileWriter(outputFile1));
