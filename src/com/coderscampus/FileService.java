@@ -20,7 +20,9 @@ public class FileService {
 
 			writer1.write("Student ID, Student Name, Course, Grade \n");
 			for (Enrollment e : enrollments) {
-				writer1.write(e.getiD() + " " + e.getName() + " " + e.getCourse() + " " + e.getGrade() + "\n");
+				//writer1.write(e.getiD() + " " + e.getName() + " " + e.getCourse() + " " + e.getGrade() + "\n");
+				writer1.write(e.getiD() + ", " + e.getName() + " ," + e.getCourse() + " ," + e.getGrade() + "\n");
+
 			}
 		} finally {
 			if (writer1 != null)
